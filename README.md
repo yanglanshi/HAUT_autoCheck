@@ -10,6 +10,6 @@
 **感谢所有参与完美校园打卡项目的人，祝大家牛年多财气，旺牛载运福满天！**
 ## 使用方法 
 - [进入WIKI](https://github.com/YooKing/HAUT_autoCheck/wiki)
-
+ 
 ## 许可
 本项目以 MIT 协议开源，详情请见 [LICENSE](LICENSE) 文件。
