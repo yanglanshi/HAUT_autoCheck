@@ -88,48 +88,48 @@ def getUserInfo(token):
             time.sleep(3)
 
 #校内打卡提交函数
-def checkIn(userInfo,token):
-    sign_url = "https://reportedh5.17wanxiao.com/sass/api/epmpics"
-     #随机温度(36.2~36.8)
-    a=random.uniform(36.2,36.8)
-    temperature = round(a, 1)
-    jsons={
-            "businessType": "epmpics",
-            "method": "submitUpInfoSchool",
-            "jsonData": {
-            "deptStr": {
-                "deptid": userInfo['classId'],
-                "text": userInfo['classDescription']
-            },
-            #如果你来自其他学校，请自行打卡抓包修改地址字段
-            "areaStr": {"streetNumber":"","street":"长椿路辅路","district":"中原区","city":"郑州市","province":"河南省","town":"","pois":"河南工业大学(莲花街校区)","lng":113.55064699999795 + random.random()/1000,"lat":34.83870696238093 + random.random()/1000,"address":"中原区长椿路辅路河南工业大学(莲花街校区)","text":"河南省-郑州市","code":""},
-            "reportdate": round(time.time()*1000),
-            "customerid": userInfo['customerId'],
-            "deptid": userInfo['classId'],
-            "source": "app",
-            "templateid": "clockSign2",
-            "stuNo": userInfo['stuNo'],
-            "username": userInfo['username'],
-            "userid": round(time.time()),
-            "updatainfo": [  
-                {
-                    "propertyname": "temperature",
-                    "value": temperature
-                },
-                {
-                    "propertyname": "symptom",
-                    "value": "无症状"
-                }
-            ],
-            "customerAppTypeRuleId": 147,
-            "clockState": 0,
-            "token": token
-            },
-            "token": token
-    }
-    #提交打卡
-    response = requests.post(sign_url, json=jsons)
-    return response
+# def checkIn(userInfo,token):
+#     sign_url = "https://reportedh5.17wanxiao.com/sass/api/epmpics"
+#      #随机温度(36.2~36.8)
+#     a=random.uniform(36.2,36.8)
+#     temperature = round(a, 1)
+#     jsons={
+#             "businessType": "epmpics",
+#             "method": "submitUpInfoSchool",
+#             "jsonData": {
+#             "deptStr": {
+#                 "deptid": userInfo['classId'],
+#                 "text": userInfo['classDescription']
+#             },
+#             #如果你来自其他学校，请自行打卡抓包修改地址字段
+#             "areaStr": {"streetNumber":"","street":"长椿路辅路","district":"中原区","city":"郑州市","province":"河南省","town":"","pois":"河南工业大学(莲花街校区)","lng":113.55064699999795 + random.random()/1000,"lat":34.83870696238093 + random.random()/1000,"address":"中原区长椿路辅路河南工业大学(莲花街校区)","text":"河南省-郑州市","code":""},
+#             "reportdate": round(time.time()*1000),
+#             "customerid": userInfo['customerId'],
+#             "deptid": userInfo['classId'],
+#             "source": "app",
+#             "templateid": "clockSign2",
+#             "stuNo": userInfo['stuNo'],
+#             "username": userInfo['username'],
+#             "userid": round(time.time()),
+#             "updatainfo": [  
+#                 {
+#                     "propertyname": "temperature",
+#                     "value": temperature
+#                 },
+#                 {
+#                     "propertyname": "symptom",
+#                     "value": "无症状"
+#                 }
+#             ],
+#             "customerAppTypeRuleId": 147,
+#             "clockState": 0,
+#             "token": token
+#             },
+#             "token": token
+#     }
+#     #提交打卡
+#     response = requests.post(sign_url, json=jsons)
+#     return response
 
 #校外打卡
 def check(ownphone,userInfo,token):
